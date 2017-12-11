@@ -1,0 +1,86 @@
+<html>
+	<head>
+		<title> pboat827 </title>
+		<style>
+			html {
+				margin: 0 auto;
+				text-align: center;
+			}
+			
+			input {
+				box-sizing: border-box;
+				border: 2px solid #ccc;
+				border-radius: 4px;
+				background-color: #f8f8f8;
+				resize: none;
+			} 
+			
+			#dellorkcir {
+				color: #A00
+			}
+			
+			#status {
+				color: #00A
+			}
+		</style>
+		<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+		<link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-indigo.css"> 
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+		<script>
+		$sendForm = function() {
+			var fd = new FormData();
+			fd.append( 's1', $('#s1').val() );
+			fd.append( 's2', $('#s2').val() );
+		
+			$.ajax({
+				type: 'POST',
+				url: '/trySolutions',
+				crossDomain: true,
+				data: fd,
+				processData: false,
+				contentType: false,
+				success: function(responseData, textStatus, jqXHR) {
+					if((responseData + "") == "true")  {
+						$("#status").html("Status: <u> Completed </u>");
+					} else if((responseData + "") == "false") {
+						$("#status").html("Status: Incorrect");
+					} else {
+						$("#status").html("Unknown response code");
+					}
+				},
+				error: function (responseData, textStatus, errorThrown) {
+					$("#status").html("Communication Error.");
+				}
+			});
+		}
+		</script>
+	</head>
+	
+	<body>
+		<div class="w3-container w3-theme w3-card">
+		  <h1>pboat827</h1>
+		</div>
+		<p id="dellorkcir">
+			<b>
+			Congradulations! <br>
+			Your only two moves away from winning. <br> 
+			Just go ahead and type them in! 
+			</b>
+		</p>
+		<div id="puzzle">
+			1O4X6ERR708X11013014ERR16X18X___20X21X22ERR___
+			<br><br>
+			<form>
+				<input type="text" id="s1" placeholder="Solution">
+				<br>
+				<input type="text" id="s2" placeholder="Solution">
+				<br>
+				<input type="button" value="Submit" id="submit" onClick="$sendForm()">
+			</form>
+		</div>
+		<div id="statusDiv">
+			<b id="status"> Status: Unsolved </b>
+		</div>
+		</body>
+	
+</html>
