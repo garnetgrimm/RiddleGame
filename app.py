@@ -1,8 +1,6 @@
 from flask import Flask
 import random
 from flask import jsonify
-from flask.ext.sqlalchemy import SQLAlchemy
-from sqlalchemy.dialects.postgresql import JSON
 import os
 from flask import render_template
 from flask import request
