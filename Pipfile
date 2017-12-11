@@ -6,9 +6,9 @@ verify_ssl = true
 
 [packages]
 
-django = "*"
+flask = "*"
 gunicorn = "*"
-django-heroku = "*"
+Flask-Cors = "*"
 
 
 [requires]
