@@ -1,6 +1,6 @@
 <html>
 	<head>
-		<title> pboat827 </title>
+		<title> ecar563 </title>
 		<style>
 			html {
 				margin: 0 auto;
@@ -28,15 +28,17 @@
 		<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 		<link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-indigo.css"> 
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+		<script src="{{ url_for('static', filename='scripts/ecar563.js') }}"></script>
+
+		
 		<script>
 		$sendForm = function() {
 			var fd = new FormData();
 			fd.append( 's1', $('#s1').val() );
-			fd.append( 's2', $('#s2').val() );
 		
 			$.ajax({
 				type: 'POST',
-				url: '/trySolutions',
+				url: '/tryECAR',
 				crossDomain: true,
 				data: fd,
 				processData: false,
@@ -60,29 +62,26 @@
 	
 	<body>
 		<div class="w3-container w3-theme w3-card">
-		  <h1>pboat827</h1>
+		  <h1>ecar563</h1>
 		</div>
 		<p id="dellorkcir">
 			<b>
-			Congratulations! <br>
-			You're only two moves away from winning. <br> 
-			Just go ahead and type them in! 
+			The answer lies <br>
+			in the center of the carrier.
 			</b>
 		</p>
 		<div id="puzzle">
-			1O4X6ERR7O8X11O13O14ERR16X___20X21X22ERR___
-			<br><br>
 			<form>
+				<p id="lookingGlass"> O </p>
 				<input type="text" id="s1" placeholder="Solution">
-				<br>
-				<input type="text" id="s2" placeholder="Solution">
-				<br>
 				<input type="button" value="Submit" id="submit" onClick="$sendForm()">
 			</form>
 		</div>
 		<div id="statusDiv">
 			<b id="status"> Status: Unsolved </b>
 		</div>
+		
+		<a href="/" class="w3-card"> home </a>
 		</body>
 	
 </html>
