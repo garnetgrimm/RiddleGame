@@ -22,6 +22,19 @@
 			#status {
 				color: #00A
 			}
+			
+			#disclaimer {
+				font-size: 11px;
+			}
+			
+			#lookingGlass {
+				height: 20px;
+				margin: auto;
+				width :20px;
+				border-style: solid;
+				border-width: 2px;
+				border-color: black;
+			}
 		</style>
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -57,6 +70,13 @@
 				}
 			});
 		}
+		
+		$(document).ready(function() {
+		  $("#form").submit(function(event){
+			event.preventDefault();  
+			$sendForm();
+		  });
+		});
 		</script>
 	</head>
 	
@@ -71,12 +91,17 @@
 			</b>
 		</p>
 		<div id="puzzle">
-			<form>
-				<p id="lookingGlass"> O </p>
+			<form id="form">
+				<p id="lookingGlass"> </p> <br>
 				<input type="text" id="s1" placeholder="Solution">
 				<input type="button" value="Submit" id="submit" onClick="$sendForm()">
 			</form>
 		</div>
+		
+		<p id="disclaimer">
+			This puzzle may not be able to be <br> completed on some mobile browsers. 
+		</p>
+		
 		<div id="statusDiv">
 			<b id="status"> Status: Unsolved </b>
 		</div>
