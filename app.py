@@ -55,9 +55,9 @@ def tryEcar():
 	
 	r = False
 	
-	if(s1 == "c"):
+	if(s1 == "i"):
 		r = True
-	if(s1 == "C"):
+	if(s1 == "I"):
 		r = True
 	
 	
